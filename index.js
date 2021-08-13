@@ -22,14 +22,14 @@ client.connect(err => {
   const enrollCourseCollection = client.db("Educamp").collection("enrollCourse ");
   const makingAdminCollection = client.db("Educamp").collection("makeAdmin ");
   const payWithEnrollCourse = client.db("Educamp").collection("paySuccess ");
-  console.log('db connected')
+   
   // <<<<< Add Popular Course Post method Start here>>>
   app.post("/popularCourses", (req, res) => {
     const  addCourse = req.body;
     popularCourseCollection.insertOne(addCourse)
     .then(result=>{
       res.send(result)
-      console.log(result)
+      // console.log(result)
     })
 
   });
@@ -83,7 +83,7 @@ client.connect(err => {
     enrollCourseCollection.insertOne(enrollCourse)
     .then(result =>{
       res.send(result)
-      console.log(result)
+      // console.log(result)
     })
   })
   // <<<< enrollCourse post method end >>>>
@@ -105,7 +105,7 @@ app.post('/makeAdmin',(req, res)=>{
   makingAdminCollection.insertOne(admin)
   .then(result => {
     res.send(result)
-    console.log(result);
+    // console.log(result);
   })
 })
 app.post('/getAdmin', (req,res)=>{
@@ -130,7 +130,7 @@ app.post('/payWithEnrollCourse',(req, res)=>{
     payWithEnrollCourse.insertOne(payData)
     .then(result =>{
       res.send(result);
-      console.log(result);
+      // console.log(result);
     })
 });
 app.get('/getPayWithEnrollCourse',(req, res)=>{
